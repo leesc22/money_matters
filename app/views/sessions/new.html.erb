@@ -2,12 +2,10 @@
 
 <%= form_with url: sign_in_path , local: true do |form| %>
 	<div>
-		<%= form.label :email %>
-		<%= form.text_field :email %>
+		<%= form.text_field :email, type: 'email', placeholder: 'Email', required: true, class: '' %>
 	</div>
 	<div>
-		<%= form.label :password %>
-		<%= form.password_field :password %>
+		<%= form.password_field :password, placeholder: 'Password', required: true, class: '' %>
 	</div>
 	<div>
 		<%= link_to 'SIGN UP', sign_up_path, class: 'btn btn-default' %>

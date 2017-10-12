@@ -2,20 +2,15 @@
 
 <%= form_with model: @user, local: true do |form| %>
 	<div>
-		<%= form.label :name %>
-		<%= form.text_field :name %>
+		<%= form.text_field :name, placeholder: 'Name', required: true, class: '' %>
+	<div>
+		<%= form.text_field :email, type: 'email', placeholder: 'Email', required: true, class: '' %>
 	</div>
 	<div>
-		<%= form.label :email %>
-		<%= form.text_field :email %>
+		<%= form.password_field :password, placeholder: 'Password', required: true, class: '' %>
 	</div>
 	<div>
-		<%= form.label :password %>
-		<%= form.password_field :password %>
-	</div>
-	<div>
-		<%= form.label :password_confirmation %>
-		<%= form.password_field :password_confirmation %>
+		<%= form.password_field :password_confirmation, placeholder: 'Confirm password', required: true, class: '' %>
 	</div>
 	<div>
 		<%= link_to 'SIGN IN', sign_in_path, class: 'btn btn-default' %>
