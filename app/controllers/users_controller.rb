@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 			flash[:success] = ""
 			redirect_to user_path(@user)
 		else
-			flash[:danger] = "Error"
+			error_messages = @user.errors.to_a
+			flash[:danger] = "#{'Error'.pluralize(error_messages.size)}: #{error_messages}"
 			render 'new'
 		end
 	end
