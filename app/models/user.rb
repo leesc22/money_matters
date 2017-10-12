@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
+  has_many :investments, dependent: :destroy
 	validates :name, :email, presence: true
 	validates :email, uniqueness: true
 	validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Invalid email format!" }
