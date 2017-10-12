@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-			flash[:success] = ""
+			flash[:success] = "Signed in!"
 			redirect_to user_path(@user)
 		else
 			error_messages = @user.errors.to_a

@@ -3,14 +3,14 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.find_by_email(params[:email])
-
-		if user && user.authenticate(params[:password])
+		@user = User.find_by_email(params[:email])
+		if @user && @user.authenticate(params[:password])
 			flash[:success] = "Signed in!"
 			session[:user_id] = user.id
 			redirect_to @user
 		else
-			flash[:danger] = "Error"
+			error_messages = @user.errors.to_a
+			flash[:danger] = "Error. Invalid authentication!"
 			render 'new'
 		end
 	end
@@ -40,6 +40,7 @@ class SessionsController < ApplicationController
 
 		# sign_in(user)
 		session[:user_id] = user.id
-		redirect_to @next, :notice => @notice
+		flash[:success] = @notice
+		redirect_to @next
 	end
 end
