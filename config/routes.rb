@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'investments#new'
 
   resources :investments, except: [:edit, :update]
 

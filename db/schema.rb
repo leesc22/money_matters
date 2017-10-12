@@ -27,14 +27,16 @@ ActiveRecord::Schema.define(version: 20171012115747) do
 
   create_table "investments", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "initial_amount", default: 0
+    t.decimal "initial_amount", default: "0.0"
     t.integer "interest_rate", default: 0
     t.string "interest_rate_period", default: "yearly"
     t.integer "period", null: false
-    t.integer "period_type", default: 0
-    t.integer "regular_amount", default: 0
+    t.string "period_type", default: "years"
+    t.decimal "regular_amount", default: "0.0"
     t.string "regular_period", default: "monthly"
     t.string "compounding_period", default: "yearly"
+    t.decimal "total_interest"
+    t.decimal "future_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_investments_on_user_id"
