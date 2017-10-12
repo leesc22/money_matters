@@ -1,0 +1,13 @@
+<%= form_with url: sign_in_path , local: true do |form| %>
+	<div>
+		<%= form.label :email %>
+		<%= form.text_field :email %>
+	</div>
+	<div>
+		<%= form.label :password %>
+		<%= form.text_field :password %>
+	</div>
+	<div>
+		<%= form.submit 'SIGN IN' %>
+	</div>
+<% end %>
