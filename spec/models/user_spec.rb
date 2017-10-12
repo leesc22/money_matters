@@ -1,51 +1,37 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+	let(:valid_user) { User.new(name: "David Lim", email: "david_lim@na.com", password: "12345678", password_confirmation: "12345678") }
+	let(:missing_user_name) { User.new(email: "david_lim@na.com", password: "12345678", password_confirmation: "12345678") }
+	let(:missing_user_email) { User.new(name: "David Lim", password: "12345678", password_confirmation: "12345678") }
+	let(:missing_user_password) { User.new(name: "David Lim", email: "david_lim@na.com") }
+	let(:invalid_user_email) { User.new(name: "David Lim", email: "david_lim.com", password: "12345678", password_confirmation: "12345678") }
+
+	
   context "validations" do
-  	describe "validates name and email" do
-  		it { is_expected.to validate_presence_of(:name) }
-  		it { is_expected.to validate_presence_of(:email) }
-  		it { is_expected.to validate_uniqueness_of(:email) }
-	  	# it { should validate_presence_of :name }
-	  	# it { should validate_presence_of :email }
-	  	# it { should validate_uniqueness_of(:email) }
-	  end
-
-	  describe "validates password" do
-  		it { is_expected.to validate_presence_of(:password) }
-  		it { is_expected.to validate_presence_of(:password_confirmation) }
-	  	# it { should validate_presence_of :password }
-	  	# it { should validate_presence_of :password_confirmation }
-      it { is_expected.to validate_length_of(:password).is_equal_to(8) }
-  		it { is_expected.to validate_confirmation_of(:password) }
-	  end
-
 	  describe "validates attributes" do
 		  # happy path
 	  	it "can be created when all attributes are present" do
-		  	let(:user) { User.new(name: "David Lim", email: "david_lim@na.com", password: "12345678", password_confirmation: "12345678") }
-		  	expect(user.save).to eq(true)
+		  	expect(valid_user.save).to eq(true)
 		  end
 
 		  # unhappy path
+	  	before do
+	  	end
 		  it "cannot be created without a name" do
-		  	let(:user) { User.new(email: "david_lim@na.com", password: "12345678", password_confirmation: "12345678") }
-		  	expect(user.save).to eq(false)
+		  	expect(missing_user_name.save).to eq(false)
 		  end
 
 		  it "cannot be created without a email" do
-		  	let(:user) { User.new(name: "David Lim", password: "12345678", password_confirmation: "12345678") }
-		  	expect(user.save).to eq(false)
+		  	expect(missing_user_email.save).to eq(false)
 		  end
 
 		  it "cannot be created without a password" do
-		  	let(:user) { User.new(name: "David Lim", email: "david_lim@na.com") }
-		  	expect(user.save).to eq(false)
+		  	expect(missing_user_password.save).to eq(false)
 		  end
 
 		  it "cannot be created without a valid email" do
-		  	let(:user) { User.new(name: "David Lim", email: "david_lim.com", password: "12345678", password_confirmation: "12345678") }
-		  	expect(user.save).to eq(false)
+		  	expect(invalid_user_email.save).to eq(false)
 		  end
 	  end
   end
