@@ -1,5 +1,6 @@
 <%= @user.name %>
 <%= @user.email %>
+<%= link_to 'Edit Profile', edit_user_path %>
 <%= link_to 'SIGN OUT', sign_out_path %>
 
 <% if current_user %>

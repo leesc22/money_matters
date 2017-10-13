@@ -4,8 +4,18 @@
 	</div>
 	<div>
 		<%= form_with model: @user, local: true do |form| %>
-			<%= form.label 'Profile photo' %>
-			<%= form.file_field :avatar, class: '' %>
+			<div>
+				<%= form.label 'Profile photo' %>
+				<%= form.file_field :avatar, class: '' %>
+			</div>
+			<div>
+				<%= form.label :name %>
+				<%= form.text_field :name, class: '' %>
+			</div>
+			<div>
+				<%= form.label :email %>
+				<%= form.text_field :email, class: '' %>
+			</div>
 		<% end %>
 	</div>
 </div>
