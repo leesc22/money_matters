@@ -1,0 +1,16 @@
+<div id="results_ajax">
+	<div>
+		<div>Future Value</div>
+		<div><%= number_with_precision(@investment.future_value, precision: 2) %></div>
+	</div>
+
+	<div>
+		<div>Total Interest</div>
+		<div><%= number_with_precision(@investment.total_interest, precision: 2) %></div>
+	</div>
+
+	<div>
+		<div>Total Investment</div>
+		<div><%= number_with_precision(@investment.future_value - @investment.total_interest, precision: 2) %></div>
+	</div>
+</div>

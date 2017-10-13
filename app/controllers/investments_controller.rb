@@ -20,8 +20,10 @@ class InvestmentsController < ApplicationController
 		end
 
 		if @investment.save
-			flash[:success] = "Investment is created successfully."
-			redirect_to @investment
+			respond_to do |format|
+	      format.html { redirect_to @investment, flash: { success: "Investment is created successfully." } }
+	      format.js
+	    end
 		else
 			error_messages = @investment.errors.to_a
 			flash[:danger] = "Error calculating: #{error_messages}"
@@ -32,8 +34,10 @@ class InvestmentsController < ApplicationController
 	def destroy
 		@investment = Investment.find(params[:id])
 		@investment.destroy
-		
-		redirect_back(fallback_location: root_path)
+		respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js
+    end
 	end
 
 	private
