@@ -1,3 +1,5 @@
-<%= link_to 'Create New Article', new_article_path if current_user.admin? %>
+<% if current_user %>
+	<%= link_to 'Create New Article', new_article_path if current_user.admin? %>
+<% end %>
 
 <%= render @articles %>
