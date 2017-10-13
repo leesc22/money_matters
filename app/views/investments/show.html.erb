@@ -23,7 +23,7 @@
 <table>
 	<tr>
 		<td>Total Investment</td>
-		<td><%= number_with_precision(@investment.future_value - @investment.total_interest, precision: 2) %></td>
+		<td><%= number_with_precision(@investment.total_investment, precision: 2) %></td>
 	</tr>
 	<tr>
 		<td>Total Interest</td>

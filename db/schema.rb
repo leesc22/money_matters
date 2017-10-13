@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171013060430) do
     t.decimal "regular_amount", default: "0.0"
     t.string "regular_period", default: "monthly"
     t.string "compounding_period", default: "yearly"
+    t.decimal "total_investment"
     t.decimal "total_interest"
     t.decimal "future_value"
     t.datetime "created_at", null: false
