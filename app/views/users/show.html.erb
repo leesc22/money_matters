@@ -1,3 +1,4 @@
+<%= image_tag @user.avatar.url.to_s, class: '' %>
 <%= @user.name %>
 <%= @user.email %>
 <%= link_to 'Edit Profile', edit_user_path %>
