@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'investments#new'
+
+  resources :investments, except: [:edit, :update]
 
   # Redirect user from Facebook login
   get '/auth/:provider/callback' => 'sessions#create_from_omniauth'

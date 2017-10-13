@@ -1,0 +1,42 @@
+<h2>User Input</h1>
+<table>
+	<tr>
+		<td>Initial Investment</td>
+		<td><%= number_with_precision(@investment.initial_amount, precision: 2) %></td>
+	</tr>
+	<tr>
+		<td>Regular Investment</td>
+		<td><%= number_with_precision(@investment.regular_amount, precision: 2) %></td>
+		<td><%= @investment.regular_period %></td>
+	</tr>
+	<tr>
+		<td>Interest (%)</td>
+		<td><%= @investment.interest_rate %></td>
+		<td><%= @investment.interest_rate_period %></td>
+	</tr>
+	<tr>
+		<td>Period</td>
+		<td><%= @investment.period %></td>
+		<td><%= @investment.period_type %></td>
+	</tr>
+	<tr>
+		<td>Compounding</td>
+		<td><%= @investment.compounding_period %></td>
+	</tr>
+</table>
+
+<h2>Results</h2>
+<table>
+	<tr>
+		<td>Total Investment</td>
+		<td><%= number_with_precision(@investment.future_value - @investment.total_interest, precision: 2) %></td>
+	</tr>
+	<tr>
+		<td>Total Interest</td>
+		<td><%= number_with_precision(@investment.total_interest, precision: 2) %></td>
+	</tr>
+	<tr>
+		<td>Future Value</td>
+		<td><%= number_with_precision(@investment.future_value, precision: 2) %></td>
+	</tr>
+</table>

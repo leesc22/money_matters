@@ -15,12 +15,12 @@
     <% end %>
 
     <div class="navbar-nav ml-auto">
-      <%= link_to 'CALCULATOR', '#', class: 'nav-item nav-link' %>
+      <%= link_to 'CALCULATOR', new_investment_path, class: 'nav-item nav-link' %>
       <%= link_to 'ARTICLES', '#', class: 'nav-item nav-link' %>
       <% if current_user  %>
-        <%= link_to 'PROFILE', '#', class: 'nav-item nav-link' %>
+        <%= link_to 'PROFILE', user_path(current_user), class: 'nav-item nav-link' %>
       <% else %>
-        <%= link_to 'SIGN IN', '#', class: 'nav-item nav-link' %>
+        <%= link_to 'SIGN IN', sign_in_path, class: 'nav-item nav-link' %>
       <% end %>
     </div>
   </div>

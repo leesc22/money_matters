@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012075648) do
+ActiveRecord::Schema.define(version: 20171012115747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,23 @@ ActiveRecord::Schema.define(version: 20171012075648) do
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
+  create_table "investments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.decimal "initial_amount", default: "0.0"
+    t.integer "interest_rate", default: 0
+    t.string "interest_rate_period", default: "yearly"
+    t.integer "period", null: false
+    t.string "period_type", default: "years"
+    t.decimal "regular_amount", default: "0.0"
+    t.string "regular_period", default: "monthly"
+    t.string "compounding_period", default: "yearly"
+    t.decimal "total_interest"
+    t.decimal "future_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_investments_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -35,4 +52,5 @@ ActiveRecord::Schema.define(version: 20171012075648) do
   end
 
   add_foreign_key "authentications", "users"
+  add_foreign_key "investments", "users"
 end
