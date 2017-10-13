@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 		@user = User.find_by_email(params[:email])
 		if @user && @user.authenticate(params[:password])
 			flash[:success] = "Signed in!"
-			session[:user_id] = user.id
+			session[:user_id] = @user.id
 			redirect_to @user
 		else
 			error_messages = @user.errors.to_a
