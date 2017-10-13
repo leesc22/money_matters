@@ -1,0 +1,11 @@
+<div>
+	<div>
+		Edit Profile
+	</div>
+	<div>
+		<%= form_with model: @user, local: true do |form| %>
+			<%= form.label 'Profile photo' %>
+			<%= form.file_field :avatar, class: '' %>
+		<% end %>
+	</div>
+</div>

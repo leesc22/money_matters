@@ -36,7 +36,8 @@ gem 'omniauth-facebook'
 # Use CarrierWave and minimagick for image uploader
 gem 'mini_magick'
 gem 'carrierwave'
-
+# Use AWS for cloud storage
+gem 'fog-aws'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
