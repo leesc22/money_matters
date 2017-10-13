@@ -1,0 +1,12 @@
+<div>
+	<%= form_with model: @article, local: true do |form| %>
+		<div>
+			<%= form.label :url, class: '' %>
+			<%= form.text_field :url, required: true, class: '' %>
+		</div>
+
+		<div>
+			<%= form.submit %>
+		</div>
+	<% end %>	
+</div>

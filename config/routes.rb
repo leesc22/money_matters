@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'investments#new'
 
+  resources :articles
+
   resources :investments, except: [:edit, :update]
 
   # Redirect user from Facebook login

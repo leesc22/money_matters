@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 
 		@article.destroy
-		redirect_back(fallback_location: index_path)
+		redirect_to articles_path
 	end
 
 	private
@@ -69,7 +69,8 @@ class ArticlesController < ApplicationController
 			return
 		else
 			share_json = JSON.parse(response.body)
-			{ url: share_json["url"], title: share_json["title"], image: share_json["images"].first["src"].to_s }
+			img = share_json["images"].first
+			{ url: share_json["url"], title: share_json["title"], content: share_json["description"], remote_image_url: img["src"].to_s }
 		end
 	end
 end
