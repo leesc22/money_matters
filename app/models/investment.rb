@@ -11,12 +11,14 @@ class Investment < ApplicationRecord
 		period_type = PERIOD[self.period_type.to_sym]
 		
 		self.future_value = calculate_initial_amount_future_value(self) + calculate_regular_amount_future_value(self)
-		total_investment = self.initial_amount + self.regular_amount * regular_period * period * period_type
+		total_investment = self.initial_amount + self.regular_amount * regular_period * period
 		self.total_interest = self.future_value - total_investment
 	end
 
 	def calculate_initial_amount_future_value(obj)
-		obj.initial_amount * (1 + obj.interest_rate.to_f / 100)**(obj.period)
+		regular_period = FREQUENCY[obj.regular_period.to_sym] || 1
+
+		obj.initial_amount * (1 + (obj.interest_rate.to_f / 100) / regular_period)**(obj.period * regular_period)
 	end
 
 	def calculate_regular_amount_future_value(obj)

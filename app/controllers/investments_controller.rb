@@ -20,8 +20,12 @@ class InvestmentsController < ApplicationController
 		end
 
 		if @investment.save
-			flash[:success] = "Investment is created successfully."
-			redirect_to @investment
+			respond_to do |format|
+	      format.html { redirect_to @investment, flash: { success: "Investment is created successfully." } }
+	      format.js
+	    end
+			# flash[:success] = "Investment is created successfully."
+			# redirect_to @investment
 		else
 			error_messages = @investment.errors.to_a
 			flash[:danger] = "Error calculating: #{error_messages}"
