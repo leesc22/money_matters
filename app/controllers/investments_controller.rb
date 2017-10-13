@@ -12,13 +12,18 @@ class InvestmentsController < ApplicationController
 	end
 
 	def create
-		@investment = Investment.new(investment_params)
+		if current_user
+			@investment = current_user.investments.new(investment_params)
+		else
+			@investment = Investment.new(investment_params)
+		end
 
 		if @investment.save
 			flash[:success] = "Investment is created successfully."
 			redirect_to @investment
 		else
-			flash[:danger] = "Error calculating."
+			error_messages = @investment.errors.to_a
+			flash[:danger] = "Error calculating: #{error_messages}"
 			render 'new'
 		end
 	end
