@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+
 	def index
 		@investments = current_user.investments.all
 	end
