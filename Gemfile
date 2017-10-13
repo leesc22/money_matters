@@ -38,6 +38,9 @@ gem 'mini_magick'
 gem 'carrierwave'
 # Use AWS for cloud storage
 gem 'fog-aws'
+# Use RestClient for API
+gem 'rest-client'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
