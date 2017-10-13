@@ -10,6 +10,7 @@ class CreateInvestments < ActiveRecord::Migration[5.1]
     	t.decimal :regular_amount, default: 0
     	t.string :regular_period, default: 'monthly'
     	t.string :compounding_period, default: 'yearly'
+      t.decimal :total_investment
       t.decimal :total_interest
       t.decimal :future_value
       t.timestamps
