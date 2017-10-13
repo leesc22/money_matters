@@ -24,8 +24,8 @@ class Investment < ApplicationRecord
 	def calculate_regular_amount_future_value(obj)
 		regular_period = FREQUENCY[obj.regular_period.to_sym]
 		regular_amount = obj.regular_amount || 0
-		interest_rate = obj.interest_rate || 0
+		interest_rate = (obj.interest_rate.to_f / 100) / regular_period || 0
 		
-		regular_amount * ((1 + (interest_rate.to_f / 100) / regular_period )**(obj.period * regular_period) - 1) / (interest_rate.to_f / 100 / regular_period)
+		regular_amount * ((1 + interest_rate)**(obj.period * regular_period - 1) - 1) / interest_rate * (1 + interest_rate)
 	end
 end
