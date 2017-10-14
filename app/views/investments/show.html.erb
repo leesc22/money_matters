@@ -1,36 +1,48 @@
-<h2>User Input</h1>
-<table>
-	<tr>
-		<td>Initial Investment</td>
-		<td><%= number_with_precision(@investment.initial_amount, precision: 2) %></td>
-	</tr>
-	<tr>
-		<td>Regular Investment</td>
-		<td><%= number_with_precision(@investment.regular_amount, precision: 2) %></td>
-		<td><%= @investment.regular_period %></td>
-	</tr>
-	<tr>
-		<td>Interest (%)</td>
-		<td><%= @investment.interest_rate %></td>
-	</tr>
-	<tr>
-		<td>Period</td>
-		<td><%= @investment.period %></td>
-	</tr>
-</table>
+<div class="container m-3 card-investment">
+	<div class="flex-row">
+		<div class="card">
+			<div class="card-body">
+				<h2 class="card-title">Input</h1>
+				<table class="table">
+					<tr>
+						<th>Initial Investment</th>
+						<td><%= number_with_precision(@investment.initial_amount, precision: 2, delimiter: ',') %></td>
+					</tr>
+					<tr>
+						<th>Regular Investment</th>
+						<td><%= number_with_precision(@investment.regular_amount, precision: 2, delimiter: ',') %> <%= @investment.regular_period %></td>
+					</tr>
+					<tr>
+						<th>Interest (%)</th>
+						<td><%= @investment.interest_rate %></td>
+					</tr>
+					<tr>
+						<th>Period</th>
+						<td><%= @investment.period %> years</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h2 class="card-title">Results</h2>
+				<table class="table">
+					<tr>
+						<th>Total Investment</th>
+						<td><%= number_with_precision(@investment.total_investment, precision: 2, delimiter: ',') %></td>
+					</tr>
+					<tr>
+						<th>Total Interest</th>
+						<td><%= number_with_precision(@investment.total_interest, precision: 2, delimiter: ',') %></td>
+					</tr>
+					<tr>
+						<th>Future Value</th>
+						<td><%= number_with_precision(@investment.future_value, precision: 2, delimiter: ',') %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h2>Results</h2>
-<table>
-	<tr>
-		<td>Total Investment</td>
-		<td><%= number_with_precision(@investment.total_investment, precision: 2) %></td>
-	</tr>
-	<tr>
-		<td>Total Interest</td>
-		<td><%= number_with_precision(@investment.total_interest, precision: 2) %></td>
-	</tr>
-	<tr>
-		<td>Future Value</td>
-		<td><%= number_with_precision(@investment.future_value, precision: 2) %></td>
-	</tr>
-</table>
+

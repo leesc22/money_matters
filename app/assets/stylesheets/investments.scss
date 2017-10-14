@@ -5,8 +5,15 @@
 	}
 }
 
-// new
+// show
 .card-investment {
+	@media (min-width: 768px) {
+		width: 44rem;	
+	}
+}
+
+// new
+.card-new-investment {
 	@media (min-width: 768px) {
 		width: 44rem;	
 	}
