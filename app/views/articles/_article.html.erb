@@ -1,7 +1,7 @@
 <div class="card card-article">
 	<div class="card-body">
 		<%= link_to article_path(article), target: "_self" do %>
-			<%= image_tag(article.image.url(:thumb).to_s, class: 'card-img-top') if article.url %>
+			<%= image_tag(article.image.url(:thumb).to_s, class: 'card-img-top') if article.image %>
 
 		<h2 class="card-title h3 text-dark"><%= article.title %></h2>
 		
@@ -13,7 +13,7 @@
 
 		<% if current_user %>
 			<% if current_user.admin? %>
-				<%= link_to 'Edit Article', edit_article_path(article), class: 'btn btn-info btn-sm' unless article.url %>
+				<%= link_to 'Edit Article', edit_article_path(article), class: 'btn btn-info btn-sm mb-2' unless article.url %>
 				<%= link_to 'Delete Article', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
 			<% end %>
 		<% end %>
