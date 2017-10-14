@@ -10,8 +10,11 @@
   <div class="collapse navbar-collapse" id="navbarNav">
 
     <%= form_with url: articles_path, method: :get, local: true, class: 'form-inline my-2 my-lg-0' do |form| %>
-      <%= form.text_field :search, placeholder: 'Search for articles', required: true, class: 'form-control ml-sm-2', id: 'search' %>
-      <%= form.submit 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+      <div class="input-group">
+        <%= form.text_field :search, placeholder: 'Search for articles', required: true, class: 'form-control ml-sm-2', id: 'search' %>
+          <%= form.submit 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+        
+      </div>
     <% end %>
 
     <div class="navbar-nav ml-auto">
@@ -20,7 +23,7 @@
       <% if current_user  %>
         <%= link_to 'PROFILE', user_path(current_user), class: 'nav-item nav-link' %>
       <% else %>
-        <%= link_to 'SIGN IN', sign_in_path, class: 'nav-item nav-link' %>
+        <%= link_to 'SIGN IN', sign_in_path, class: 'nav-item nav-link', data: { toggle: 'modal', target: '#modal-sign-in' }, remote: true %>
       <% end %>
     </div>
   </div>
