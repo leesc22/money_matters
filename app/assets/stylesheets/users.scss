@@ -6,3 +6,9 @@
 	width: 20rem;
 }
 
+// edit
+.card-edit-profile {
+	@media (min-width: 768px) {
+		width: 35rem;	
+	}
+}

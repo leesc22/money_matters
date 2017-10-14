@@ -1,20 +1,24 @@
-<div>
-	<div>
-		Edit Profile
-	</div>
-	<div>
+<div class="card card-edit-profile m-3">
+	<div class="card-body">
+		<h1 class="card-title">Edit Profile</h1>
 		<%= form_with model: @user, local: true do |form| %>
-			<div>
-				<%= form.label 'Profile photo' %>
-				<%= form.file_field :avatar, class: '' %>
+			<div class="form-group row">
+				<%= form.label 'Profile photo', class: 'col-sm-3 col-form-label' %>
+				<div class="col-sm-9">
+					<%= form.file_field :avatar, class: 'form-control' %>
+				</div>
 			</div>
-			<div>
-				<%= form.label :name %>
-				<%= form.text_field :name, class: '' %>
+			<div class="form-group row">
+				<%= form.label :name, class: 'col-sm-3 col-form-label' %>
+				<div class="col-sm-9">
+					<%= form.text_field :name, class: 'form-control' %>
+				</div>
 			</div>
-			<div>
-				<%= form.label :email %>
-				<%= form.text_field :email, class: '' %>
+			<div class="form-group row">
+				<%= form.label :email, class: 'col-sm-3 col-form-label' %>
+				<div class="col-sm-9">
+					<%= form.text_field :email, class: 'form-control' %>
+				</div>
 			</div>
 			<div>
 				<%= form.submit 'Save' , class: '' %>
