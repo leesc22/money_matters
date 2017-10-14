@@ -1,19 +1,22 @@
-<h1><%= article.title %></h1>
+<div class="card card-article m-3">
+	<div class="card-body">
+		<%= link_to article_path(article), target: "_self" do %>
+			<%= image_tag(article.image.url(:thumb).to_s, class: 'card-img-top') if article.url %>
 
-<%= link_to article_path(article), target: "_self" do %>
+		<h2 class="card-title h3 text-dark"><%= article.title %></h2>
+		
+		<% end %>
 
-	<div><%= image_tag(article.image.url(:thumb).to_s) if article.url %></div>
+		<div class="card-text"><%= simple_format(article.content) %></div>
 
-<% end %>
+		<div class="article-external-link mb-2"><%= link_to 'View article from original source', article.url, target: "_blank", class: 'btn btn-secondary btn-sm' if article.url %></div>
 
-<div><%= link_to 'View article from original source', article.url, target: "_blank", class: '' if article.url %></div>
-
-<div><%= simple_format(article.content) %></div>
-
-<% if current_user %>
-	<% if current_user.admin? %>
-		<%= link_to 'Edit Article', edit_article_path(article) unless article.url %>
-		<%= link_to 'Delete Article', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
-	<% end %>
-<% end %>
-	
+		<% if current_user %>
+			<% if current_user.admin? %>
+				<%= link_to 'Edit Article', edit_article_path(article), class: 'btn btn-info btn-sm' unless article.url %>
+				<%= link_to 'Delete Article', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+			<% end %>
+		<% end %>
+			
+	</div>
+</div>
