@@ -7,8 +7,6 @@
 		
 		<% end %>
 
-		<div class="card-text"><%= simple_format(article.content) %></div>
-
 		<div class="article-external-link mb-2"><%= link_to 'View article from original source', article.url, target: "_blank", class: 'btn btn-secondary btn-sm' if article.url %></div>
 
 		<% if current_user %>
@@ -17,6 +15,5 @@
 				<%= link_to 'Delete Article', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
 			<% end %>
 		<% end %>
-			
 	</div>
 </div>
