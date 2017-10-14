@@ -1,24 +1,21 @@
-# README
+# FINAL ASSESSMENT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MONEY MATTERS
 
-Things you may want to cover:
+An investment calculator web applications.
 
-* Ruby version
+Features:
 
-* System dependencies
+* Calculate future value
 
-* Configuration
+* View investment related articles
 
-* Database creation
+* Sign up to save calculation results and more
 
-* Database initialization
+Future improvements: 
 
-* How to run the test suite
+* Discussion thread where users can discuss on latest news
 
-* Services (job queues, cache servers, search engines, etc.)
+* Lessons where users can learn more about investment
 
-* Deployment instructions
-
-* ...
+* Gamification elements where users can earn badges
