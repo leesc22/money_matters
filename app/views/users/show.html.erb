@@ -1,9 +1,23 @@
-<%= image_tag @user.avatar.url(:thumb).to_s, class: '' %>
-<%= @user.name %>
-<%= @user.email %>
-<%= link_to 'Edit Profile', edit_user_path %>
-<%= link_to 'SIGN OUT', sign_out_path %>
+<div class="card m-3">
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col-sm-2 text-center">
+					<%= image_tag @user.avatar.url(:thumb).to_s, class: 'rounded' %>
+				</div>
+				<div class="col">
+					<h1 class="card-title h2"><%= @user.name %></h1>
+					<%= link_to 'SIGN OUT', sign_out_path, class: 'btn btn-secondary btn-sm text-dark' %>
+					<%= link_to 'EDIT PROFILE', edit_user_path, class: 'btn btn-info btn-sm' %>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item">
+			<h2 class="card-title h4">My Calculator Results</h2>
+			<% if current_user %>
+				<%= link_to 'View all results', investments_path, class: 'btn btn-info' %>
+			<% end %>
+		</li>
+	</ul>
+</div>
 
-<% if current_user %>
-	<%= link_to 'View all results', investments_path %>
-<% end %>
