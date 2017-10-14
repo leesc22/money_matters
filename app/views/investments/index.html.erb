@@ -1,9 +1,14 @@
-<table>
-	<tr>
-		<th>Total Investment</th>
-		<th>Future Value</th>
-	</tr>
-	
-		<%= render @investments %>
+<table class="table table-bordered table-hover table-investments">
+	<thead class="thead-inverse">
+		<tr>
+			<th>Total Investment</th>
+			<th>Future Value</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
 
+	<tbody>
+		<%= render @investments %>
+	</tbody>
 </table>
