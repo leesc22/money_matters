@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+	default_scope { order(created_at: :desc) }
 	mount_uploader :image, ArticleImageUploader
 
 	def self.search(search)
