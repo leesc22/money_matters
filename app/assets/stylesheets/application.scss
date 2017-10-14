@@ -1,5 +1,19 @@
+@import 'footer';
 @import 'theme';
 @import 'users';
 @import 'sessions';
 @import 'investments';
 @import 'articles';
+
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1 0 auto;
+}
