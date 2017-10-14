@@ -1,6 +1,6 @@
 <tr id="row<%= investment.id %>">
-	<td><%= number_with_precision(investment.total_investment, precision: 2) %></td>
-	<td><%= number_with_precision(investment.future_value, precision: 2) %></td>
+	<td><%= number_with_precision(investment.total_investment, precision: 2, delimiter: ',') %></td>
+	<td><%= number_with_precision(investment.future_value, precision: 2, delimiter: ',') %></td>
 	<td><%= link_to 'View', investment_path(investment) %></td>
 	<td><%= link_to 'Delete', investment_path(investment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
 </tr>

@@ -1,3 +1,11 @@
+// index
+.table-investments {
+	th, td {
+		text-align: center;
+	}
+}
+
+// new
 .card-investment {
 	@media (min-width: 768px) {
 		width: 44rem;	
