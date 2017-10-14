@@ -2,6 +2,6 @@
 	<%= link_to 'Create New Article', new_article_path, class: 'btn btn-primary mt-3 ml-3' if current_user.admin? %>
 <% end %>
 
-<div class="card-group">
+<div class="card-group m-3 flex-sm-column flex-lg-row">
 	<%= render @articles %>
 </div>

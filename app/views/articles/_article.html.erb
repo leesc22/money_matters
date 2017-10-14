@@ -1,4 +1,4 @@
-<div class="card card-article m-3">
+<div class="card card-article">
 	<div class="card-body">
 		<%= link_to article_path(article), target: "_self" do %>
 			<%= image_tag(article.image.url(:thumb).to_s, class: 'card-img-top') if article.url %>
