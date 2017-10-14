@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
 	private
 
 	def article_params
-		params.require(:article).permit(:title, :content, :url)
+		params.require(:article).permit(:title, :content, :url, :image)
 	end
 
 	def get_shared_article_params(url)
