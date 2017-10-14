@@ -1,30 +1,34 @@
-<h1>Investment Calculator</h1>
+<div class="card">
+	<div class="card-body">
+		<h1>Investment Calculator</h1>
 
-<%= form_with model: @investment, id: :new_investment do |form| %>
-	<div>
-		<%= form.label 'Initial Investment' %>
-		<%= form.number_field :initial_amount, {value: '1000', min: 0, class:''}%>
+		<%= form_with model: @investment, id: :new_investment do |form| %>
+			<div>
+				<%= form.label 'Initial Investment' %>
+				<%= form.number_field :initial_amount, {value: '1000', min: 0, class:''}%>
+			</div>
+			<div>
+				<%= form.label 'Regular Investment' %>
+				<%= form.number_field :regular_amount, {value: '200', min: 0, class:''}%>
+				<%= form.select :regular_period, options_for_select(['Monthly', 'Quarterly', 'Half Yearly', 'Yearly'], 'Monthly'), {}, { class: '' } %>
+			</div>
+			<div>
+				<%= form.label 'Interest (%)' %>
+				<%= form.number_field :interest_rate, {value: '6', min: 0, class:''}%>
+				<%#= form.select :interest_rate_period, options_for_select(['Yearly', 'Half Yearly', 'Quarterly', 'Monthly'], 'Yearly'), {}, { class: '' } %>
+			</div>
+			<div>
+				<%= form.label :period %>
+				<%= form.number_field :period, {value: '1', min: 0, class:''}%> years
+				<%#= form.select :period_type, options_for_select(['Years', 'Months'], 'Years'), {}, { class: '' } %>
+			</div>
+			<div>
+				<%#= form.label 'Compounding' %>
+				<%#= form.select :compounding_period, options_for_select(['Yearly', 'Half Yearly', 'Quarterly', 'Monthly'], 'Yearly'), {}, { class: '' } %>
+			</div>
+			<div>
+				<%= form.submit 'Calculate' %>
+			</div>
+		<% end %>
 	</div>
-	<div>
-		<%= form.label 'Regular Investment' %>
-		<%= form.number_field :regular_amount, {value: '200', min: 0, class:''}%>
-		<%= form.select :regular_period, options_for_select(['Monthly', 'Quarterly', 'Half Yearly', 'Yearly'], 'Monthly'), {}, { class: '' } %>
-	</div>
-	<div>
-		<%= form.label 'Interest (%)' %>
-		<%= form.number_field :interest_rate, {value: '6', min: 0, class:''}%>
-		<%#= form.select :interest_rate_period, options_for_select(['Yearly', 'Half Yearly', 'Quarterly', 'Monthly'], 'Yearly'), {}, { class: '' } %>
-	</div>
-	<div>
-		<%= form.label :period %>
-		<%= form.number_field :period, {value: '1', min: 0, class:''}%> years
-		<%#= form.select :period_type, options_for_select(['Years', 'Months'], 'Years'), {}, { class: '' } %>
-	</div>
-	<div>
-		<%#= form.label 'Compounding' %>
-		<%#= form.select :compounding_period, options_for_select(['Yearly', 'Half Yearly', 'Quarterly', 'Monthly'], 'Yearly'), {}, { class: '' } %>
-	</div>
-	<div>
-		<%= form.submit 'Calculate' %>
-	</div>
-<% end %>
+</div>
