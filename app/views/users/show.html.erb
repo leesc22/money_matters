@@ -5,11 +5,17 @@
 				<div class="col-sm-2 text-center">
 					<%= image_tag @user.avatar.url(:thumb).to_s, class: 'rounded' %>
 				</div>
-				<div class="col">
-					<h1 class="card-title h2"><%= @user.name %></h1>
-					<%= link_to 'SIGN OUT', sign_out_path, class: 'btn btn-secondary btn-sm text-dark' %>
-					<%= link_to 'EDIT PROFILE', edit_user_path, class: 'btn btn-info btn-sm' %>
-				</div>
+					<div class="col">
+						<h1 class="card-title h2"><%= @user.name %></h1>
+
+						<% if current_user %>
+							<% if current_user.id == @user.id %>
+									<%= link_to 'SIGN OUT', sign_out_path, class: 'btn btn-secondary btn-sm text-dark' %>
+									<%= link_to 'EDIT PROFILE', edit_user_path, class: 'btn btn-info btn-sm' %>
+							<% end %>
+						<% end %>
+						
+					</div>
 			</div>
 		</li>
 		<li class="list-group-item">
