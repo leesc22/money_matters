@@ -7,9 +7,11 @@
 
 // show
 .card-investment {
-	#show_piechart {
-		width: 48rem;
-		height: 35rem;
+	@media (min-width: 768px) {
+		#show_piechart {
+			width: 48rem;
+			height: 25rem;
+		}
 	}
 }
 
