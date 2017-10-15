@@ -9,28 +9,32 @@
 	</thead>
 	<tbody>
 		<tr>
-			<% subtotal_investment = @investment.initial_amount + @investment.regular_amount * 11 %>
-			<% interest_rate = @investment.interest_rate.to_f / 100 %>
-			<% initial_interest = @investment.initial_amount * interest_rate %>
-			<% regular_interest = 0 %>
 			<% regular_period = FREQUENCY[@investment.regular_period.to_sym] %>
-			<% 11.times do |i| %>
-				<% regular_interest += @investment.regular_amount * (interest_rate / regular_period)**(i + 1)  %>
-			<% end %>
+			<% interest_rate = @investment.interest_rate.to_f / 100 / regular_period %>
+			<% subtotal_investment = @investment.initial_amount + @investment.regular_amount * (regular_period - 1) %>
+			<% initial_interest = @investment.initial_amount * (((1 + interest_rate)**regular_period) - 1) %>
+			<% regular_interest = @investment.regular_amount * (((((1 + interest_rate)**(regular_period - 1)) - 1) / interest_rate)*(1 + interest_rate) - (regular_period - 1)) %>
 			<% interest = initial_interest + regular_interest %>
+			<% year_end_value = subtotal_investment + interest %>
 			
 			<td>1</td>
 			<td><%= number_with_precision(subtotal_investment, precision: 2, delimiter: ',') %></td>
 			<td><%= number_with_precision(interest, precision: 2, delimiter: ',') %></td>
-			<td><%= number_with_precision(subtotal_investment + interest, precision: 2, delimiter: ',') %></td>
+			<td><%= number_with_precision(year_end_value, precision: 2, delimiter: ',') %></td>
 		</tr>
+
 		<% (2..@investment.period).each do |i| %>
 		 <tr>
+			<% subtotal_investment += @investment.regular_amount * regular_period %>
+			<% initial_interest = year_end_value * (((1 + interest_rate)**regular_period) - 1) %>
+			<% regular_interest = @investment.regular_amount * (((((1 + interest_rate)**(regular_period)) - 1) / interest_rate)*(1 + interest_rate) - (regular_period)) %>
+			<% interest += initial_interest + regular_interest %>
+			<% year_end_value = subtotal_investment + interest %>
+
 		 	<td><%= i %></td>
-			<% subtotal_investment += @investment.regular_amount * 12 %>
 		 	<td><%= number_with_precision(subtotal_investment, precision: 2, delimiter: ',') %></td>
-		 	<td></td>
-		 	<td></td>
+		 	<td><%= number_with_precision(interest, precision: 2, delimiter: ',') %></td>
+			<td><%= number_with_precision(year_end_value, precision: 2, delimiter: ',') %></td>
 		 </tr>
 		<% end %>
 	</tbody>
