@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
+			session[:user_id] = @user.id
 			flash[:success] = "User created. Please confirm or edit details."
 			redirect_to edit_user_path(@user)
 		else
