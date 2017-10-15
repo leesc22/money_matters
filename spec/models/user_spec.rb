@@ -37,7 +37,9 @@ RSpec.describe User, type: :model do
   end
 
   context "associations with dependency" do
-  	it { is_expected.to have_many(:investments).dependent(:destroy)}
-    it { is_expected.to have_many(:comments).dependent(:destroy)}
+  	it "should have many investments" do
+  		investments = User.reflect_on_association(:investments)
+  		expect(investments.macro).to eq(:has_many)
+  	end
   end
 end

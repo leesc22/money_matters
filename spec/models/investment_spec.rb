@@ -14,12 +14,6 @@ RSpec.describe Investment, type: :model do
 	let(:missing_period) { Investment.new(initial_amount: initial_amount, interest_rate: interest_rate, interest_rate_period: interest_rate_period, period_type: period_type, regular_amount: regular_amount, regular_period: regular_period, compounding_period: compounding_period) }
 
   context "validations" do
-  	describe "validates interest_rate and period" do
-  		it "validates interest_rate to be a number" do
-	  		expect(:interest_rate).to be_kind_of(Numeric)
-  		end
-	  end
-
 	  describe "validates attributes" do
 		  # happy path
 		  it "can be created when all attributes are present" do
