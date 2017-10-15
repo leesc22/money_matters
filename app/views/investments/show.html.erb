@@ -1,5 +1,5 @@
 <div class="container m-3 card-investment">
-	<div class="card-group">
+	<div class="card-group mb-3">
 		<div class="card">
 			<div class="card-body">
 				<h2 class="card-title">Input</h1>
@@ -43,9 +43,25 @@
 			</div>
 		</div>
 	</div>
-	<div class="mx-auto" id="show_piechart"></div>
 
-	<script type="text/javascript">
+	<nav class="nav nav-tabs" id="investmentTab" role="tablist">
+	  <a class="nav-item nav-link active" id="nav-piechart-tab" data-toggle="tab" href="#piechart" role="tab" aria-controls="nav-piechart" aria-expanded="true">Pie Chart</a>
+	  <a class="nav-item nav-link" id="nav-cashflow-tab" data-toggle="tab" href="#cashflow" role="tab" aria-controls="nav-cashflow">Cash Flow</a>
+	</nav>
+
+	<div class="tab-content" id="">
+		<!-- Pie Chart -->
+		<div class="tab-pane fade show active" id="piechart" role="tabpanel" aria-labelledby="piechart-tab">
+			<div class="mx-auto" id="show_piechart"></div>
+		</div>
+
+		<div class="tab-pane fade" id="cashflow" role="tabpanel" aria-labelledby="cashflow-tab">
+			<%= render partial: '/investments/cashflow' %>
+		</div>
+	</div>
+
+
+	<script>
 		// Load google charts
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.setOnLoadCallback(drawChart);
