@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
 		else
 			share_json = JSON.parse(response.body)
 			img = share_json["images"].first
-			{ url: share_json["url"], title: share_json["title"], content: share_json["description"], remote_image_url: img["src"].to_s }
+			{ url: share_json["url"], title: share_json["title"], content: share_json["description"], remote_image_url: (img["src"].to_s if img) }
 		end
 	end
 end
