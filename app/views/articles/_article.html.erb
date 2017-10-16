@@ -8,6 +8,8 @@
 			<h2 class="card-title h3 text-dark font-weight-bold"><%= article.title %></h2>
 		<% end %>
 		
+		<div class="date text-muted card-subtitle mb-3"><%= article.created_at.strftime("%a, %d %b %Y, %I:%M%p") %></div>
+
 		<div class="article-external-link mb-2"><%= link_to 'View article from original source', article.url, target: "_blank", class: 'btn btn-secondary btn-sm' if article.url %></div>
 
 		<% if current_user %>

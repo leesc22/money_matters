@@ -9,11 +9,12 @@
 
 	<div class="row">
 		<% @news_api_articles.each do |article| %>
-			<div class="card col-lg-4 col-md-12">
+			<div class="card col-lg-4 col-md-12 card-news-api">
 				<%= image_tag(article["urlToImage"], class: 'card-img-top') if article["urlToImage"] %>
 				<%= link_to article["url"], target: "_blank" do %>
 					<h3 class="card-title h4 text-dark font-weight-bold"><%= article["title"] %></h3>
 				<% end %>
+				<div class="date text-muted card-subtitle"><%= DateTime.parse(article["publishedAt"]).strftime("%a, %d %b %Y, %I:%M%p") %></div>
 			</div>
 		<% end %>
 	</div>

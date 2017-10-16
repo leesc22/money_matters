@@ -1,9 +1,20 @@
+.card-news-api {
+	.date {
+		font-size: 0.95rem;
+	}
+}
+
 .card-article {
 	@media (min-width: 992px) {
 		width: 55rem;
 	}
-	.btn {
-		white-space: normal;
+	.card-body {
+		.date {
+			font-size: 0.95rem;
+		}
+		.btn {
+			white-space: normal;
+		}
 	}
 }
 
