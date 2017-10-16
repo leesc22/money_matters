@@ -1,25 +1,31 @@
 <div class="m-3" id="results_ajax">
-	<div class="card">
-		<div class="card-body text-center">
-			<h2 class="card-title h1 p-2">Results</h2>
-			<div class="row border flex-column p-2">
-				<div class="h5">Future Value</div>
-				<div><%= number_with_precision(@investment.future_value, precision: 2, delimiter: ',') %></div>
-			</div>
+	<div class="row">
+		<div class="col-lg-5 col-md-12">
+			<div class="card">
+				<div class="card-body text-center">
+					<h2 class="card-title h1 p-2">Results</h2>
+					<div class="row border flex-column p-2">
+						<div class="h5">Future Value</div>
+						<div><%= number_with_precision(@investment.future_value, precision: 2, delimiter: ',') %></div>
+					</div>
 
-			<div class="row">
-				<div class="col border p-2">
-					<div class="h5">Total Interest</div>
-					<div><%= number_with_precision(@investment.total_interest, precision: 2, delimiter: ',') %></div>
-				</div>
-				<div class="col border p-2">
-					<div class="h5">Total Investment</div>
-					<div><%= number_with_precision(@investment.total_investment, precision: 2, delimiter: ',') %>
+					<div class="row">
+						<div class="col border p-2">
+							<div class="h5">Total Interest</div>
+							<div><%= number_with_precision(@investment.total_interest, precision: 2, delimiter: ',') %></div>
+						</div>
+						<div class="col border p-2">
+							<div class="h5">Total Investment</div>
+							<div><%= number_with_precision(@investment.total_investment, precision: 2, delimiter: ',') %>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="col-lg-7 col-md-12">
+			<div id="new_piechart"></div>
+		</div>
 	</div>
 	
-	<div id="new_piechart"></div>
 </div>
