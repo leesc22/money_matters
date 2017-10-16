@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	def index
-		@news_api_articles = get_news_api.first(3)
+		@news_api_articles = get_news_api.sample(3)
 		@articles = Article.search(params[:search])
 	end
 
