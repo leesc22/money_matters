@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 	def index
+		@news_api_articles = get_news_api.first(3)
 		@articles = Article.search(params[:search])
 	end
 
@@ -72,5 +73,11 @@ class ArticlesController < ApplicationController
 			img = share_json["images"].first
 			{ url: share_json["url"], title: share_json["title"], content: share_json["description"], remote_image_url: (img["src"].to_s if img) }
 		end
+	end
+
+	def get_news_api
+		response = RestClient.get("https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=#{ENV['NEWS_API_KEY']}")
+		news_json = JSON.parse(response.body)
+		news_json["articles"]
 	end
 end
