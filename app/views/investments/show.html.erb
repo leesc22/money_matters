@@ -36,7 +36,7 @@
 						<td><%= number_with_precision(@investment.total_interest, precision: 2, delimiter: ',') %></td>
 					</tr>
 					<tr>
-						<th>Future Value</th>
+						<th>Future Value <i class="fa fa-money"></i></th>
 						<td><%= number_with_precision(@investment.future_value, precision: 2, delimiter: ',') %></td>
 					</tr>
 				</table>
@@ -45,8 +45,8 @@
 	</div>
 
 	<nav class="nav nav-tabs" id="investmentTab" role="tablist">
-	  <a class="nav-item nav-link active" id="nav-piechart-tab" data-toggle="tab" href="#piechart" role="tab" aria-controls="nav-piechart" aria-expanded="true">Pie Chart</a>
-	  <a class="nav-item nav-link" id="nav-cashflow-tab" data-toggle="tab" href="#cashflow" role="tab" aria-controls="nav-cashflow">Cash Flow</a>
+	  <a class="nav-item nav-link active" id="nav-piechart-tab" data-toggle="tab" href="#piechart" role="tab" aria-controls="nav-piechart" aria-expanded="true"><i class="fa fa-pie-chart"></i> Pie Chart</a>
+	  <a class="nav-item nav-link" id="nav-cashflow-tab" data-toggle="tab" href="#cashflow" role="tab" aria-controls="nav-cashflow"><i class="fa fa-table"></i> Cash Flow</a>
 	</nav>
 
 	<div class="tab-content" id="">
