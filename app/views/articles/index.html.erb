@@ -2,6 +2,31 @@
 	<%= link_to 'Create New Article', new_article_path, class: 'btn btn-primary mt-3 ml-3' if current_user.admin? %>
 <% end %>
 
-<div class="card-columns m-3">
+<div class="card-group mx-3">
+	<div class="row ml-3 mt-3">
+		<h2 class="h5">Top News from Bloomberg</h2>
+	</div>
+
+	<div class="row">
+		<% @news_api_articles.each do |article| %>
+			<div class="card col-lg-4 col-md-12">
+				<%= image_tag(article["urlToImage"], class: 'card-img-top') if article["urlToImage"] %>
+				<%= link_to article["url"], target: "_blank" do %>
+					<h3 class="card-title h4 text-dark font-weight-bold"><%= article["title"] %></h3>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="row mx-3">
+		<%= link_to 'https://newsapi.org', target: "_blank" do %>
+			<small class="text-muted">
+				Powered by News API
+			</small>
+		<% end %>
+	</div>
+</div>
+
+<div class="card-columns mx-3 my-5">
 	<%= render @articles %>
 </div>
