@@ -24,7 +24,7 @@
         <% if current_user  %>
           <%= link_to 'PROFILE', user_path(current_user), class: 'nav-item nav-link font-weight-bold' %>
         <% else %>
-          <%= link_to 'SIGN IN', sign_in_path, class: 'nav-item nav-link', data: { toggle: 'modal', target: '#modal-sign-in' }, remote: true %>
+          <%= link_to 'SIGN IN', sign_in_path, class: 'nav-item nav-link font-weight-bold', data: { toggle: 'modal', target: '#modal-sign-in' }, remote: true %>
         <% end %>
       </div>
     </div>

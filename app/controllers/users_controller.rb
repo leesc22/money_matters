@@ -15,9 +15,12 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-			session[:user_id] = @user.id
-			flash[:success] = "User created. Please confirm or edit details."
-			redirect_to edit_user_path(@user)
+			UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+			# session[:user_id] = @user.id
+			# flash[:success] = "User created. Please confirm or edit details."
+			# redirect_to edit_user_path(@user)
 		else
 			error_messages = @user.errors.to_a
 			flash[:danger] = "#{'Error'.pluralize(error_messages.size)}: #{error_messages}"

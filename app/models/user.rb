@@ -1,18 +1,19 @@
 class User < ApplicationRecord
+  attr_accessor :activation_token
   has_many :authentications, dependent: :destroy
   has_many :investments, dependent: :destroy
   has_many :articles, dependent: :destroy
-	validates :name, :email, presence: true
-	validates :email, uniqueness: true
-	validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Invalid email format!" }
-	has_secure_password
-	validates :password, length: { is: 8 }, confirmation: true, allow_nil: true
+  validates :name, :email, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Invalid email format!" }
+  has_secure_password
+  validates :password, length: { is: 8 }, confirmation: true, allow_nil: true
   enum role: [:client, :moderator, :admin, :superadmin]
   mount_uploader :avatar, AvatarUploader
-  # before_save :downcase_email
-  # before_create :create_activation_digest
+  before_save :downcase_email
+  before_create :create_activation_digest
 
-	def self.create_with_auth_and_hash(authentication, auth_hash)
+  def self.create_with_auth_and_hash(authentication, auth_hash)
     user = self.create!(
       name: auth_hash["extra"]["raw_info"]["name"],
       email: auth_hash["extra"]["raw_info"]["email"],
@@ -38,6 +39,13 @@ class User < ApplicationRecord
   # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  # Returns true if the given token matches the digest.
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   private
