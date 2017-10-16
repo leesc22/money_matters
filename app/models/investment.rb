@@ -28,4 +28,14 @@ class Investment < ApplicationRecord
 		
 		regular_amount * ((1 + interest_rate)**(obj.period * regular_period - 1) - 1) / interest_rate * (1 + interest_rate)
 	end
+
+	# PENDING - thinking of ways to calculate other attributes - before_save method is not feasible
+	def self.calculate_regular_amount
+		# given initial_amount, regular_period, interest_rate, period and future value - find regular_amount
+		self.total_investment = self.initial_amount + self.regular_amount * (regular_period * period - 1)
+		self.total_interest = self.future_value - self.total_investment
+		regular_period = FREQUENCY[obj.regular_period.to_sym]
+		interest_rate = (obj.interest_rate.to_f / 100) / regular_period
+		self.regular_amount = (self.future_value - (self.initial_amount*(1 + interest_rate)**(period * regular_period))) * (interest_rate / (1 + interest_rate) * ((1 + interest_rate)**(period * regular_period - 1) - 1))
+	end
 end
