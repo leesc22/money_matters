@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'investments#new'
 
+  resources :account_activations, only: [:edit]
+
   resources :articles
 
   resources :investments, except: [:edit, :update]
