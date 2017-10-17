@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def signed_in?
-  	!current_user.nil
+  	!current_user.nil?
   end
   helper_method :current_user, :signed_in?
 
