@@ -1,6 +1,11 @@
+.card-columns {
+	column-count: 2;
+}
+
 .card-news-api {
+	border: 1px solid rgba(0,0,0,.125) !important;
 	.date {
-		font-size: 0.95rem;
+		font-size: 0.80rem;
 	}
 }
 
