@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		if @user.save
 			@user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to root_path
 			# session[:user_id] = @user.id
 			# flash[:success] = "User created. Please confirm or edit details."
 			# redirect_to edit_user_path(@user)
