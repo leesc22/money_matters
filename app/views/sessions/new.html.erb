@@ -9,7 +9,10 @@
 			<div class="form-group">
 				<%= form.password_field :password, placeholder: 'Password', required: true, class: 'form-control' %>
 			</div>
-			<div class="row no-gutters">
+			<div class="text-right mb-3">
+				<%= link_to 'Forgot Password?', new_password_reset_path, class: 'text-dark forgot-password-link' %>
+			</div>
+			<div class="row no-gutters mb-2">
 				<div class="col mr-1">
 					<%= link_to 'SIGN UP', sign_up_path, class: 'btn btn-secondary btn-block text-dark' %>
 				</div>
@@ -17,7 +20,7 @@
 					<%= form.submit 'SIGN IN', class: 'btn btn-primary btn-block' %>
 				</div>
 			</div>
-			<div class="mt-2">
+			<div class="">
 				<%= link_to 'Continue with Facebook', "/auth/facebook", class: 'btn btn-facebook btn-block' %>
 			</div>
 		<% end %>
