@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :activation_token
+  attr_accessor :activation_token, :reset_token
   has_many :authentications, dependent: :destroy
   has_many :investments, dependent: :destroy
   has_many :articles, dependent: :destroy
