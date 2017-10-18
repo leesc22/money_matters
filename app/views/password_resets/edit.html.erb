@@ -1,2 +1,23 @@
-<h1>PasswordResets#edit</h1>
-<p>Find me in app/views/password_resets/edit.html.erb</p>
+<% provide(:title, "Reset Password") %>
+
+<div class="card card-reset-password mx-auto my-5">
+	<div class="card-body">
+		<h1 class="card-title">Reset Password</h1>
+
+		<%= form_with model:@user, url: password_reset_path(params[:id]) , local: true do |form| %>
+			<%= hidden_field_tag :email, @user.email %>
+			<div class="form-group">
+				<%= form.password_field :password, placeholder: 'Password', required: true, class: 'form-control' %>
+				<small class="text-muted">
+					Your password must be 8 characters long.
+				</small>
+			</div>
+			<div class="form-group">
+				<%= form.password_field :password_confirmation, placeholder: 'Confirm password', required: true, class: 'form-control' %>
+			</div>
+			<div class="">
+				<%= form.submit 'RESET', class: 'btn btn-primary btn-block' %>
+			</div>
+		<% end %>
+	</div>
+</div>
