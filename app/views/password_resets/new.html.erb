@@ -1,2 +1,16 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+<% provide(:title, "Password Recovery") %>
+
+<div class="card card-forgot-password mx-auto my-5">
+	<div class="card-body">
+		<h1 class="card-title">Password Recovery</h1>
+		<p class="card-text">Enter your account's email address to recover your password.</p>
+		<%= form_with url: password_resets_path , local: true do |form| %>
+			<div class="form-group">
+				<%= form.text_field :email, type: 'email', placeholder: 'Email', required: true, class: 'form-control' %>
+			</div>
+			<div class="">
+				<%= form.submit 'RECOVER', class: 'btn btn-primary btn-block' %>
+			</div>
+		<% end %>
+	</div>
+</div>
