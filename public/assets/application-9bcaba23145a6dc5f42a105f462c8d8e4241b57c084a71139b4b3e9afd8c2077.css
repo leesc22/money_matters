@@ -1,0 +1,143 @@
+/* line 1, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/footer.scss */
+.footer {
+  background-color: #000;
+}
+/* line 3, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/footer.scss */
+.footer .bg-circle-outline {
+  width: 50px;
+  height: 50px;
+  color: smoke;
+  padding: 8px 2px;
+  border: 2px solid;
+  border-color: smoke;
+  border-radius: 50%;
+}
+
+/* line 1, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/theme.scss */
+[class*='-facebook'] {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+/* line 6, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/theme.scss */
+.bg-theme {
+  background-color: #790008;
+}
+
+/* line 5, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/users.scss */
+.card-sign-up {
+  width: 20rem;
+}
+
+@media (min-width: 768px) {
+  /* line 10, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/users.scss */
+  .card-edit-profile {
+    width: 35rem;
+  }
+}
+
+/* line 1, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/sessions.scss */
+.card-sign-in {
+  width: 20rem;
+}
+/* line 3, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/sessions.scss */
+.card-sign-in .forgot-password-link {
+  font-size: 0.8rem;
+}
+
+/* line 1, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/password_resets.scss */
+.card-forgot-password {
+  width: 30rem;
+}
+
+/* line 5, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/password_resets.scss */
+.card-reset-password {
+  width: 30rem;
+}
+
+/* line 3, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/investments.scss */
+.table-investments th, .table-investments td {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  /* line 11, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/investments.scss */
+  .card-investment #show_piechart {
+    width: 48rem;
+    height: 25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  /* line 20, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/investments.scss */
+  #results_ajax .card {
+    width: 25rem;
+  }
+}
+/* line 26, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/investments.scss */
+#results_ajax #new_piechart {
+  width: 25rem;
+  height: 20rem;
+}
+
+@media (min-width: 768px) {
+  /* line 33, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/investments.scss */
+  .card-new-investment {
+    width: 44rem;
+  }
+}
+
+/* line 1, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+.card-columns {
+  column-count: 2;
+}
+
+/* line 5, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+.card-news-api {
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+/* line 7, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+.card-news-api .date {
+  font-size: 0.80rem;
+}
+
+@media (min-width: 992px) {
+  /* line 12, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+  .card-article {
+    width: 55rem;
+  }
+}
+/* line 17, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+.card-article .card-body .date {
+  font-size: 0.95rem;
+}
+/* line 20, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+.card-article .card-body .btn {
+  white-space: normal;
+}
+
+/* line 26, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+.card-new-article {
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+@media (min-width: 768px) {
+  /* line 26, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/articles.scss */
+  .card-new-article {
+    width: 44rem;
+  }
+}
+
+/* line 9, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/application.scss */
+html {
+  height: 100%;
+}
+/* line 11, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/application.scss */
+html body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* line 15, /home/leesc/Documents/code/NEXT/final_assessment/money_matters/app/assets/stylesheets/application.scss */
+html body .content {
+  flex: 1 0 auto;
+}
