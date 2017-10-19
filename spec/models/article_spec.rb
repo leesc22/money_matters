@@ -31,4 +31,11 @@ RSpec.describe Article, type: :model do
   		expect(Article.search('savings').first.title).to eq(article.title)
   	end
   end
+
+  context "associations with dependency" do
+  	it "should belongs to user" do
+  		user = Article.reflect_on_association(:user)
+  		expect(user.macro).to eq(:belongs_to)
+  	end
+  end
 end

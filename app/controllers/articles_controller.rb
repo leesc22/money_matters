@@ -21,13 +21,13 @@ class ArticlesController < ApplicationController
 		if url
 			share_params = get_shared_article_params(url)
 			if share_params
-				@article = Article.new(share_params)
+				@article = current_user.articles.new(share_params)
 			else
 				flash[:danger] = "Error creating article. Invalid link."
 				return redirect_back(fallback_location: index_path)
 			end
 		else
-			@article = Article.new(article_params)
+			@article = current_user.articles.new(article_params)
 		end
 
 		if @article.save
