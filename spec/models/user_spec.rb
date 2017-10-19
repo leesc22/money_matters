@@ -65,5 +65,15 @@ RSpec.describe User, type: :model do
   		investments = User.reflect_on_association(:investments)
   		expect(investments.macro).to eq(:has_many)
   	end
+
+  	it "should have many authentications" do
+  		authentications = User.reflect_on_association(:authentications)
+  		expect(authentications.macro).to eq(:has_many)
+  	end
+
+  	it "should have many articles" do
+  		articles = User.reflect_on_association(:articles)
+  		expect(articles.macro).to eq(:has_many)
+  	end
   end
 end
