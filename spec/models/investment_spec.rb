@@ -45,4 +45,11 @@ RSpec.describe Investment, type: :model do
   		expect { valid_investment_with_user_id.calculate_future_value }.not_to raise_error
   	end
   end
+
+  context "associations with dependency" do
+  	it "should belongs to user" do
+  		user = Investment.reflect_on_association(:user)
+  		expect(user.macro).to eq(:belongs_to)
+  	end
+  end
 end
