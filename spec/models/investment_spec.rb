@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Investment, type: :model do
-	let(:user) {FactoryGirl.create(:user)}
+	let(:user) {FactoryBot.create(:user)}
 	let(:initial_amount)       { 1000 }
 	let(:interest_rate)        { 6 }
 	let(:interest_rate_period) { 'Yearly'}

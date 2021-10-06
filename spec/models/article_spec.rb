@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   let(:article) { user.articles.new(title: 'Importance of Savings', content: 'Buffer for emergency funds') }
   let(:article2) { user.articles.new(title: 'Type of Savings', content: 'FD and unit trust') }
 

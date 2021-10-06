@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
   describe "account_activation" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     let(:mail) { UserMailer.account_activation(user) }
 
     it "renders the headers" do
@@ -17,7 +17,7 @@ RSpec.describe UserMailer, type: :mailer do
   end
 
   describe "password_reset" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     let(:mail) { UserMailer.password_reset(user) }
     
     before do
